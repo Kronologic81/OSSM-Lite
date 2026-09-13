@@ -1,0 +1,12 @@
+#ifndef SOFTWARE_STEPPER_H
+#define SOFTWARE_STEPPER_H
+
+#include "FastAccelStepper.h"
+#include "constants/Pins.h"
+
+extern FastAccelStepperEngine stepperEngine;
+extern FastAccelStepper *stepper;
+
+void initStepper();
+
+#endif  // SOFTWARE_STEPPER_H

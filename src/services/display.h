@@ -1,0 +1,39 @@
+#ifndef OSSM_SOFTWARE_DISPLAY_H
+#define OSSM_SOFTWARE_DISPLAY_H
+#include <U8g2lib.h>
+
+#include "constants/Pins.h"
+#include "freertos/semphr.h"
+#include "utils/RecursiveMutex.h"
+
+#pragma once
+/**
+ * Welcome to our display service.
+ *
+ * Here are some documents that might help you to start drawing with this
+ * library:
+ *
+ * https://github.com/olikraus/u8g2/wiki/u8g2reference
+ *
+ * And here's a list of all U8G2 fonts:
+ *
+ * https://github.com/olikraus/u8g2/wiki/fntlistallplain
+ */
+
+extern U8G2_SSD1306_128X64_NONAME_F_HW_I2C display;
+extern SemaphoreHandle_t displayMutex;
+
+void initDisplay();
+
+bool isDisplayAvailable();
+
+void clearIcons();
+void refreshIcons();
+
+void refreshHeader();
+
+void refreshFooter();
+
+void refreshPage(bool includeFooter = false, bool includeHeader = false);
+
+#endif  // OSSM_SOFTWARE_DISPLAY_H
